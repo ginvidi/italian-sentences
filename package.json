@@ -1,0 +1,22 @@
+{
+  "name": "italian-sentences",
+  "version": "0.0.1",
+  "description": "Italian sentences generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ginvidi/italian-sentences.git"
+  },
+  "author": "Anton Osmond <antonosmond@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ginvidi/italian-sentences/issues"
+  },
+  "homepage": "https://github.com/ginvidi/italian-sentences#readme",
+  "devDependencies": {
+    "eslint": "^3.17.1"
+  }
+}
