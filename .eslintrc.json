@@ -49,9 +49,6 @@
     "no-var": [
       "error"
     ],
-    "prefer-arrow-callback": [
-      "error"
-    ],
     "prefer-const": [
       "error"
     ],
