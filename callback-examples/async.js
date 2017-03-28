@@ -18,3 +18,4 @@ function feedCats(cats) {
 }
 
 getCats(feedCats);
+console.log('blah');
