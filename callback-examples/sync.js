@@ -1,7 +1,9 @@
 const request = require('request');
 
 function getCats() {
+  console.log('GET CATS');
   // the request below is asynchronous therefore to return cats, we have to provide a callback
+
   request.get('http://www.google.co.uk/search?q=cats', function(err) {
     // here the request has been completed
     console.log('Request complete!');
@@ -14,8 +16,11 @@ function getCats() {
 }
 
 function feedCats(cats) {
+  console.log('FEED CATS');
   console.log(`Feeding ${cats}...`);
 }
 
+console.log('START');
 const cats = getCats();
 feedCats(cats);
+console.log('END');
