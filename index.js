@@ -1,13 +1,21 @@
 const http = require('http');
+const fs = require('fs');
+
 
 const port = 8080;
 
 const server = http.createServer(listener);
 
 function listener(request, response) {
-  response.writeHead(200, { 'Content-Type': 'text/plain' });
-  response.write('Hello Ginevra!');
-  response.end();
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  fs.readFile("index.html", (err, data) => {
+
+    if(err) throw err;
+    response.write(data);
+    //Need to be here so we can get the response after the file is read
+    response.end();
+
+  })
 }
 
 server.listen(port);
