@@ -7,7 +7,10 @@ function getCats() {
   request.get('http://www.google.co.uk/search?q=cats', function(err) {
     // here the request has been completed
     console.log('Request complete!');
+    console.log(err);
+    err = new Error('OMG!');
     if (err) throw err;
+
     console.log('Returning cats! MEOW!');
     return 'cats';
   });
