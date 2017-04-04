@@ -1,14 +1,12 @@
 const http = require('http');
 const fs = require('fs');
-
-
 const port = 8080;
 
 const server = http.createServer(listener);
 
 function listener(request, response) {
   response.writeHead(200, { 'Content-Type': 'text/html' });
-  fs.readFile("index.html", (err, data) => {
+  fs.readFile('index.html', (err, data) => {
 
     if(err) throw err;
     response.write(data);
