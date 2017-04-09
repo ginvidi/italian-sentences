@@ -14,20 +14,21 @@ function listener(request, response) {
 
   const query = url.parse(request.url, true).query;
   const phrase = query.phrase;
-  console.log(phrase);
+  //console.log(phrase);
 
   response.setHeader('Content-Type', 'text/plain');
   if(!phrase) {
     response.statusCode = 400;
     return response.end('Bad request');
   }
-  // if(phrase ) {
-  //   response.statusCode = 400;
-  //   return response.end('Bad request');
-  // }
-  response.end();
+  if(!(phrase in sentences)) {
+    response.statusCode = 404;
+    return response.end('Not Found');
+  }
 
-  //console.log(request);
+  response.statusCode = 200;
+  return response.end(sentences[phrase]);
+
 }
 
 server.listen(port);
