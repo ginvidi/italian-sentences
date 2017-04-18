@@ -35,10 +35,6 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "no-console": "off",
     "no-multiple-empty-lines": [
       "error",
