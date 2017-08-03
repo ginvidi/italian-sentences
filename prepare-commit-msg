@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Get initals from config
+CONFIG=$(grep "initials" ~/.gitconfig)
+INITIALS=$( echo $CONFIG | sed "s/.*= //")
+
+# Get the current branch name
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Trim it down
+JIRA_NUMBER=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
+    'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
+FULL="${JIRA_NUMBER} - ${INITIALS} -"
+
+# Preprend the trimmed branch to the given message
+if [ -n "$BRANCH_NAME" ]; then
+  echo $FULL
+  echo $1
+  sed -i.bak -e "1s@^@$FULL @" $1
+fi
